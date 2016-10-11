@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tde::Press" title="Press Content" module="Tde_Press" parent="Magento_Backend::content_elements" action="press/index/" resource="Tde_Press::index"/>
+    </menu>
+</config>

@@ -1,0 +1,61 @@
+<?php //@see partial style sheets - app/design/frontend/MindArc/tde2/web/css/partials/_tde-press-content.scss ?>
+<style>
+    .breadcrumbs {
+        display: none
+    }
+    .page-title-wrapper {
+        margin-top: 35px;
+    }
+</style>
+<?php //Unfortunately Magento 2 makes it difficult to add style sheets through layouts, this was the only pragmatic way to pull it off ?>
+<link href="/static/frontend/MindArc/tde2/en_US/css/slick/slick-theme.css" rel="stylesheet" media="screen" type="text/css">
+<div class="tde-press-list">
+    <ul>
+        <?php foreach($block->items as $item): ?>
+        <li>
+            <img class="thumbnail" src="/pub/media/wysiwyg/press-release/<?php echo $item->getThumbnail() ?>" alt="<?php echo $item->getTitle(); ?>">
+            <h4 class="title"><?php echo $item->getTitle(); ?></h4>
+            <span class="date"><?php echo $block->prepareDate($item->getReleaseDate()); ?></span>
+            <div class="tde-press-slider-modal">
+                <h4 class="title"><?php echo $item->getTitle(); ?></h4>
+                <p class="description"><?php echo $item->getDescription(); ?></p>
+                <div class="slider tde-press-slider-carousel">
+                <?php foreach(explode(',',$item->getImages()) as $img): ?>
+                <div><img src="/pub/media/wysiwyg/press-release/<?php echo $img ?>" /></div>
+                <?php endforeach; ?>
+                </div>
+            </div>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal',
+        'slick'
+    ], function ($, modal) {
+        var modals = [];
+        $('.tde-press-slider-carousel').slick({
+            autoplay: false,
+            arrows: true,
+            dots: false,
+            fade: true
+        });
+        $('.tde-press-slider-modal').each(function(){
+            modals.push($(this).modal({
+                type: 'popup',
+                responsive: true,
+                innerScroll: false,
+                title: '',
+                buttons: []
+            }));
+        });
+        $(".thumbnail").each(function(i, v){
+            $(this).click(function() {
+              modals[i].trigger('openModal');
+            });
+        });
+        $('.modals-wrapper').addClass('tde-press-modal');
+    });
+</script>
