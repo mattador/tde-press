@@ -6,12 +6,5 @@
             <argument name="resourceModel" xsi:type="string">Tde\Press\Model\ResourceModel\Press</argument>
         </arguments>
     </virtualType>
-    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-        <arguments>
-            <argument name="collections" xsi:type="array">
-                <item name="tde_press_list_data_source" xsi:type="string">Tde\Press\Model\ResourceModel\Press\Grid\Collection</item>
-            </argument>
-        </arguments>
-    </type>
 </config>
 

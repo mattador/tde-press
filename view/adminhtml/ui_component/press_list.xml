@@ -21,9 +21,9 @@
     </argument>
     <dataSource name="tde_press_list_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="class" xsi:type="string">Tde\Press\Ui\DataProvider\Press\PressDataProvider</argument>
             <argument name="name" xsi:type="string">tde_press_list_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">excellence_hello_test_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
